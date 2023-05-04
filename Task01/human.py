@@ -7,7 +7,7 @@ class Human:
 
     @property
     def name(self):
-        return self.__name.capitalize()
+        return self.__name
 
     @name.setter
     def name(self, name):
@@ -33,5 +33,5 @@ class Human:
                 self.__alive = alive
 
     def __str__(self):
-        return f"{self.name}: age = {self.__age}. " \
+        return f"{self.__name}: age = {self.__age}. " \
                f"Is alive? - {self.is_alive}"
