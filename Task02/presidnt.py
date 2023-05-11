@@ -3,13 +3,11 @@ from human import Human
 
 class President(Human):
     def __init__(self, name='no name', age='0', alive=True, power=50):
-        self.__name = name
-        self.__age = age
-        self.__alive = alive
+        super().__init__(name, age, alive)
         self.__power = power
 
     def can_rule(self):
-        print(self.__name + " can rule.")
+        print(self.name + " can rule.")
 
     @property
     def power(self):
@@ -21,6 +19,5 @@ class President(Human):
             self.__power = power
 
     def __str__(self):
-        return f"{self.__name}: age = {self.__age}. " \
-               f"Is alive? - {self.is_alive}. " \
-               f"Has salary {self.__salary} RUB"
+        return (super().__str__()
+                + f" Has salary {self.__power} RUB")

@@ -3,13 +3,11 @@ from human import Human
 
 class Student(Human):
     def __init__(self, name='no name', age='0', alive=True, mark=0):
-        self.__name = name
-        self.__age = age
-        self.__alive = alive
+        super().__init__(name, age, alive)
         self.__mark = mark
 
     def can_study(self):
-        print(self.__name + " can study.")
+        print(self.name + " can study.")
 
     @property
     def mark(self):
@@ -21,6 +19,5 @@ class Student(Human):
             self.__mark = mark
 
     def __str__(self):
-        return f"{self.__name}: age = {self.__age}. " \
-               f"Is alive? - {self.is_alive}. " \
-               f"Has mark - {self.__mark}"
+        return (super().__str__()
+                + f" Has mark - {self.__mark}")
